@@ -1,27 +1,27 @@
 import * as React from 'react'
-import { Container } from './styles'
-import Switch from 'react-switch'
-import { ThemeContext } from 'styled-components'
-import useToggleTheme from '../../hooks/useToggleTheme'
+import { HeaderStyled, ImgStyled, SpanStyled, NavStyled } from './styles'
+import { LOGO } from '../../constants'
+import { UserMenu } from './UserMenu'
 
 const Header: React.FC = () => {
-  const { colors, title } = React.useContext(ThemeContext)
-  const { toggleTheme } = useToggleTheme()
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = (): void => {
+    setAnchorEl(null)
+  }
 
   return (
-        <Container>
-            Hello World
-            <Switch
-                onChange={toggleTheme}
-                checked={title === 'dark'}
-                checkedIcon={true}
-                uncheckedIcon={false}
-                height={10}
-                width={40}
-                handleDiameter={20}
-                onColor={colors.secundary}
-            />
-        </Container>
+    <HeaderStyled>
+      <NavStyled>
+        <ImgStyled src={LOGO.URL} alt={LOGO.ALT} />
+        <SpanStyled>Produtos</SpanStyled>
+      </NavStyled>
+      <UserMenu handleClick={handleClick} handleClose={handleClose} anchorEl={anchorEl} />
+    </HeaderStyled>
   )
 }
 
