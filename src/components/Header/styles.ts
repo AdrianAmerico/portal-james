@@ -10,6 +10,7 @@ export const HeaderStyled = styled.header`
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 999;
+  max-height: 90px;
 `
 export const NavStyled = styled.nav`
 display: flex;

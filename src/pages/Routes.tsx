@@ -1,14 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
+import AuthRoute from '../config'
 import HomePage from './HomePage'
+import ProductPage from './ProductPage'
 
 const Routes = () => {
   return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" component={HomePage} />
-            </Switch>
-        </BrowserRouter>
+    <BrowserRouter>
+      <Switch>
+        <AuthRoute path="/" exact component={HomePage} />
+        <AuthRoute path="/produtos" exact component={ProductPage} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

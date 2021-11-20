@@ -2,8 +2,10 @@ import * as React from 'react'
 import { HeaderStyled, ImgStyled, SpanStyled, NavStyled } from './styles'
 import { LOGO } from '../../constants'
 import { UserMenu } from './UserMenu'
+import { useHistory } from 'react-router-dom'
 
 const Header: React.FC = () => {
+  const history = useHistory()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -17,8 +19,8 @@ const Header: React.FC = () => {
   return (
     <HeaderStyled>
       <NavStyled>
-        <ImgStyled src={LOGO.URL} alt={LOGO.ALT} />
-        <SpanStyled>Produtos</SpanStyled>
+        <ImgStyled src={LOGO.URL} alt={LOGO.ALT} onClick={() => history.push('/')} />
+        <SpanStyled onClick={() => history.push('/produtos')}>Produtos</SpanStyled>
       </NavStyled>
       <UserMenu handleClick={handleClick} handleClose={handleClose} anchorEl={anchorEl} />
     </HeaderStyled>
