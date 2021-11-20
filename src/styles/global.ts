@@ -7,10 +7,12 @@ padding: 0;
 box-sizing: border-box;
 }
 
-body {
+body, #root {
     background: ${props => props.theme.colors.background_primary};
     font-size: 12px;
     color: ${props => props.theme.colors.text};
     font-family: 'Roboto', sans-serif;
+    max-width: 100vw;
+    min-height: 100vh;
 }
 `
