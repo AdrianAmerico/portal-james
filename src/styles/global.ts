@@ -9,8 +9,8 @@ box-sizing: border-box;
 
 body {
     background: ${props => props.theme.colors.background_primary};
-    font-size: 14px;
+    font-size: 12px;
     color: ${props => props.theme.colors.text};
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 `
