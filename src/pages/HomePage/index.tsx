@@ -1,10 +1,11 @@
 import React from 'react'
 import { TextField } from '@material-ui/core'
 import { ABOUT_US } from '../../constants'
-import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide, FormStyled, TypographH1, TypographH2, TypographP, ButtonStyled } from './styles'
+import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide, FormStyled, TypographH1, TypographH2, TypographP } from './styles'
 import useForm from '../../hooks/useForm'
 import { SnackBar } from '../../components/SnackBar'
 import { ThemeContext } from '../../context/toggleTheme'
+import { ButtonStyled } from '../../components/Button'
 
 const HomePage = () => {
   const { body, onChange, clear } = useForm({ name: '', business: '', email: '', cell: '' })
