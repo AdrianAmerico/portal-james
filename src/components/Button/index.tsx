@@ -9,7 +9,7 @@ export const ButtonStyled = styled.button`
   box-shadow: none;
   text-decoration: none;
   line-height: 1;
-  padding: 10px;
+  padding: 15px;
   border: none;
   :hover {
     cursor: pointer

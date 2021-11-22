@@ -20,7 +20,8 @@ const Header: React.FC = () => {
     <HeaderStyled>
       <NavStyled>
         <ImgStyled src={LOGO.URL} alt={LOGO.ALT} onClick={() => history.push('/')} />
-        <SpanStyled onClick={() => history.push('/produtos')}>Produtos</SpanStyled>
+        <SpanStyled onClick={() => history.push('/produtos')}>Estoque</SpanStyled>
+        <SpanStyled onClick={() => history.push('/produtos/adicionar')}>Adicionar Produtos</SpanStyled>
       </NavStyled>
       <UserMenu handleClick={handleClick} handleClose={handleClose} anchorEl={anchorEl} />
     </HeaderStyled>

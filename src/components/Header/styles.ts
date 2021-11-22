@@ -29,6 +29,7 @@ export const ImgStyled = styled.img`
 export const SpanStyled = styled.span`
 font-size: 1rem;
 cursor: pointer;
+padding: 0 5px;
 :hover {
   text-decoration: underline;
 }
