@@ -20,20 +20,24 @@ export const Card = () => {
 
   return (
     <DivStyled>
-      <CardMenu anchorEl={anchorEl} handleClose={handleClose} handleClick={handleClick}/>
+      <CardMenu
+        anchorEl={anchorEl}
+        handleClose={handleClose}
+        handleClick={handleClick}
+      />
       <CardHeader>
         <section className="header-title">
-          <h1>Item name</h1>
-          <small>Item category</small>
+          <h1>product name</h1>
+          <small>product category</small>
         </section>
       </CardHeader>
       <CardContent>
         <ul>
           <li>
-            <span> product code </span>
+            <h3>fornecedor name</h3>
           </li>
           <li>
-            <span>Fabricante product</span>
+            <p> product code </p>
           </li>
         </ul>
       </CardContent>

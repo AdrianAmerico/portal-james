@@ -49,9 +49,16 @@ export const CardContent = styled.section`
   li {
     display: flex;
     line-height: 1.5;
+    text-align: center;
+    align-items: center;
   }
-  span {
+  p {
     color: white;
+    width: 100%;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 1rem;
   }
 `
 
