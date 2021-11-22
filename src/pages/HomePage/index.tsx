@@ -19,6 +19,7 @@ const HomePage = () => {
     snackbarRef.current.show()
     clear()
   }
+
   return (
     <HomeContainer>
       <TypographH1>Muito prazer

@@ -1,10 +1,14 @@
 import React from 'react'
+import { Card } from '../../components/Card'
 
 const ProductPage = () => {
   return (
-        <div>
-            BANANINHA
-        </div>
+    <>
+      BANANINHA
+      <div>
+        <Card />
+      </div>
+    </>
   )
 }
 
