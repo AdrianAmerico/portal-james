@@ -25,7 +25,6 @@ export const useAddProductCard = () => {
       !manufacturer.length ||
       !productPrice
     ) {
-      console.log('hmm')
       setType('fail')
       setMessage('Verifique os campos e tente novamente!')
       return
