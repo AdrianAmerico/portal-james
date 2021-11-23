@@ -23,7 +23,7 @@ Após tudo isso, utilize o **npm run start**
 
 ## Extras
 
-- [ ] Dark Mode
+- [x] Dark Mode
 
 ## O que Funciona
 
