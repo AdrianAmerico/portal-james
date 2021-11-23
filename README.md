@@ -57,6 +57,8 @@ Após tudo isso, utilize o **npm run start**
 
 ![Captura de tela de 2021-11-23 16-11-11](https://user-images.githubusercontent.com/73081422/143088688-2b9cdaaf-e7cf-4f36-9042-9c49cfafbd42.png)
 
+![estoque-mobile](https://user-images.githubusercontent.com/73081422/143088935-f8921fd2-6988-4635-8296-f7a15ed83abf.gif)
+
 **página de Adicionar Item ao Estoque**
 
 ![Captura de tela de 2021-11-23 16-07-32](https://user-images.githubusercontent.com/73081422/143088238-1e7493f2-56be-405b-b58b-645267f0c74a.png)
