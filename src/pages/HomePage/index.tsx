@@ -37,9 +37,8 @@ const HomePage = () => {
           <TypographH2>Deseja faturar mais ?</TypographH2>
           <FormStyled onSubmit={(event) => onSubmit(event)}>
             <TextInput label='Nome' onChange={onChange} value={body.name} name='name' required/>
+            <TextInput label='Email' onChange={onChange} value={body.email} name='email' required type='email' />
             <TextInput label='Empresa' onChange={onChange} value={body.business} name='business' />
-            <TextInput label='Email' onChange={onChange} value={body.email} name='email' required/>
-            <TextInput label='Telefone' onChange={onChange} value={body.cell} name='cell' />
             <ButtonStyled>Quero faturar mais!</ButtonStyled>
           </FormStyled>
         </DivRightSide>

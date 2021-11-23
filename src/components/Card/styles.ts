@@ -9,18 +9,34 @@ export const Card = styled.div`
   position: relative;
   margin: 10px;
   width: 200px;
+
+  h1, small, h3, li, p, span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  @media(max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 `
 
 export const CardHeader = styled.div`
   display: flex;
   padding: 15px;
   position: relative;
+  section {
+    width: 100%;
+  }
   h1 {
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     font-size: 1.6rem;
     font-weight: lighter;
   }
-  small {
+  span {
+    display: block;
     color: grey;
     font-size: 1rem;
   }
@@ -30,17 +46,21 @@ export const VerticalDot = styled.div`
   position: relative;
   inset: 0;
   transition: all 0.2s ease;
-   div {
+  div {
     width: 1.15rem;
     height: 1.15rem;
-    background-image: radial-gradient(circle, ${props => props.theme.colors.text} 0.1rem, transparent 0.1rem);
+    background-image: radial-gradient(
+      circle,
+      ${(props) => props.theme.colors.text} 0.1rem,
+      transparent 0.1rem
+    );
     background-size: 100% 33.33%;
-    }
-    :hover {
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 50%;
-    }
+  }
+  :hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
 `
 
 export const CardContent = styled.section`
@@ -55,7 +75,7 @@ export const CardContent = styled.section`
     align-items: center;
   }
   p {
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     width: 100%;
   }
   h3 {
@@ -70,7 +90,7 @@ export const CardFooter = styled.section`
   display: flex;
   flex-direction: column;
   text-align: center;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   h1 {
     font-size: 1.5rem;
   }

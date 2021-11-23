@@ -34,9 +34,9 @@ export const Card = ({ product, productList, setProductList }: Props) => {
         setProductList={setProductList}
       />
       <CardHeader>
-        <section className="header-title">
+        <section>
           <h1>{product?.name}</h1>
-          <small>{product?.category}</small>
+          <span>{product?.category}</span>
         </section>
       </CardHeader>
       <CardContent>
