@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from '../../components/Card'
 import { Product } from '../../global/types'
+import { TypographH1 } from '../HomePage/styles'
 import { ProductPageContainer } from './styles'
 
 const ProductPage = () => {
@@ -14,7 +15,6 @@ const ProductPage = () => {
   }, [])
   return (
     <>
-      BANANINHA
       <ProductPageContainer>
         {productList && productList.length
           ? (
@@ -24,7 +24,9 @@ const ProductPage = () => {
               })
             )
           : (
-          <div> Carregando</div>
+            <div style={{ width: '100%', textAlign: 'center' }}>
+              <TypographH1>Não há produtos em estoque</TypographH1>
+            </div>
             )}
       </ProductPageContainer>
     </>

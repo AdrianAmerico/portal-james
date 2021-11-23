@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderStyled = styled.header`
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.background_secundary};
   color: ${(props) => props.theme.colors.text};
   display: flex;
   align-items: center;
@@ -11,6 +11,9 @@ export const HeaderStyled = styled.header`
   inset: 0 0 auto 0;
   z-index: 999;
   max-height: 90px;
+  @media(max-width: 600px){
+    padding: 20px 10px;
+  }
 `
 export const NavStyled = styled.nav`
 display: flex;
@@ -24,6 +27,18 @@ export const ImgStyled = styled.img`
   :hover {
     cursor: pointer;
   }
+  @media(max-width: 600px){
+    display: none;
+    width: 20%;
+  }
+`
+export const ImgMobileStyled = styled.img`
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-right: 5px;
+@media(min-width: 600px){
+  display: none;
+}
 `
 
 export const SpanStyled = styled.span`

@@ -70,6 +70,8 @@ export const CardFooter = styled.section`
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 1.8rem !important;
   color: white;
+  h1 {
+    font-size: 1.5rem;
+  }
 `

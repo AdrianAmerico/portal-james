@@ -29,8 +29,8 @@ export const UserMenu = ({ handleClose, handleClick, anchorEl }: Props) => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Meu perfil</MenuItem>
-                <MenuItem onClick={handleClose}>Configurações</MenuItem>
+                {/* <MenuItem onClick={handleClose}>Meu perfil</MenuItem>
+                <MenuItem onClick={handleClose}>Configurações</MenuItem> */}
                 <MenuItem><strong>Modo Noturno</strong></MenuItem>
                 <MenuItem>
                     <Switch

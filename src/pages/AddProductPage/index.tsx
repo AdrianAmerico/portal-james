@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { TextField } from '@material-ui/core'
 import React from 'react'
+import { TextField } from '@material-ui/core'
 import { ButtonStyled } from '../../components/Button'
 import { SnackBar } from '../../components/SnackBar'
 import useForm from '../../hooks/useForm'
@@ -14,7 +14,7 @@ const AddProductPage = () => {
     category: '',
     productId: '',
     manufacturer: '',
-    productPrice: ''
+    productPrice: 0
   })
   const { addProductItem } = useAddProductCard()
 
@@ -23,7 +23,10 @@ const AddProductPage = () => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const { name, category, productId, manufacturer, productPrice } = body
-    addProductItem({ name, category, productId, manufacturer, productPrice }, clear)
+    addProductItem(
+      { name, category, productId, manufacturer, productPrice },
+      clear
+    )
     snackbarRef.current.show()
   }
 
@@ -51,6 +54,7 @@ const AddProductPage = () => {
           onChange={onChange}
           value={body.productId}
           name="productId"
+          type="number"
         />
         <TextField
           variant="outlined"
@@ -65,6 +69,7 @@ const AddProductPage = () => {
           onChange={onChange}
           value={body.productPrice}
           name="productPrice"
+          type="number"
         />
         <SpanStyled>
           <ButtonStyled>Enviar</ButtonStyled>

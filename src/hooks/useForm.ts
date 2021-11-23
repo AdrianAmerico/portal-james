@@ -8,7 +8,6 @@ const useForm = (initialState: any) => {
   }): void => {
     const { name } = event.target
     const { value } = event.target
-
     setBody({ ...body, [name]: value })
   }
 

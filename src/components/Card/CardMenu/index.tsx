@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { VerticalDot } from '../styles'
 import { useAddProductCard } from '../../../hooks/useProductCard'
 import { Product } from '../../../global/types'
+import { EditItem } from '../EditItem'
 
 interface Props {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -23,7 +24,16 @@ export const CardMenu = ({
   productList,
   setProductList
 }: Props) => {
+  const [isOpenEditModal, setIsOpenEditModal] = React.useState(false)
   const { removeProduct } = useAddProductCard()
+  const handleOpenEditModal = () => {
+    setIsOpenEditModal(true)
+  }
+
+  const handleCloseEditModal = () => {
+    setIsOpenEditModal(false)
+  }
+
   return (
     <React.Fragment>
       <span
@@ -41,7 +51,9 @@ export const CardMenu = ({
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Editar</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <EditItem open={isOpenEditModal} handleOpen={handleOpenEditModal} handleClose={handleCloseEditModal} item={item} setProductList={setProductList}/>
+        </MenuItem>
         <MenuItem
           onClick={() => removeProduct(item, productList, setProductList)}
         >

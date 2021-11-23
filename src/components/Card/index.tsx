@@ -10,8 +10,8 @@ import {
 
 interface Props {
   product: Product;
-  productList: Product[],
-  setProductList: React.Dispatch<React.SetStateAction<Product[]>>
+  productList: Product[];
+  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 export const Card = ({ product, productList, setProductList }: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -50,7 +50,14 @@ export const Card = ({ product, productList, setProductList }: Props) => {
         </ul>
       </CardContent>
       <CardFooter>
-        <h1>{product?.productPrice}</h1>
+        <h1>
+          {
+            new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL'
+            }).format(product?.productPrice)
+          }
+        </h1>
       </CardFooter>
     </DivStyled>
   )

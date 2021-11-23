@@ -21,9 +21,9 @@ export const useAddProductCard = () => {
     if (
       !name.length ||
       !category.length ||
-      !productId.length ||
+      !productId ||
       !manufacturer.length ||
-      !productPrice.length
+      !productPrice
     ) {
       console.log('hmm')
       setType('fail')
@@ -57,5 +57,14 @@ export const useAddProductCard = () => {
     setMessage('Item removido com sucesso')
     setType('success')
   }
-  return { addProductItem, removeProduct }
+
+  const editProduct = (item: Product, setProductList: React.Dispatch<React.SetStateAction<Product[]>>) => {
+    const updatedList = productList.filter(product => product.productId !== item.productId)
+    updatedList.push(item)
+    setProductList(updatedList)
+    localStorage.setItem('productList', JSON.stringify(updatedList))
+    setMessage('Item removido com sucesso')
+    setType('success')
+  }
+  return { addProductItem, removeProduct, editProduct }
 }
