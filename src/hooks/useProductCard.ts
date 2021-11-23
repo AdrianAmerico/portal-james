@@ -18,7 +18,13 @@ export const useAddProductCard = () => {
 
   const addProductItem = (body: Product, clear: () => void) => {
     const { name, category, productId, manufacturer, productPrice } = body
-    if (!name.length || !category.length || !productId.length || !manufacturer.length || !productPrice.length) {
+    if (
+      !name.length ||
+      !category.length ||
+      !productId.length ||
+      !manufacturer.length ||
+      !productPrice.length
+    ) {
       console.log('hmm')
       setType('fail')
       setMessage('Verifique os campos e tente novamente!')
@@ -39,5 +45,17 @@ export const useAddProductCard = () => {
       setMessage('Este produto já está adicionado !')
     }
   }
-  return { addProductItem }
+
+  const removeProduct = (
+    item: Product,
+    productList: Product[],
+    setProductList: React.Dispatch<React.SetStateAction<Product[]>>
+  ) => {
+    const updatedList = productList.filter(product => product.productId !== item.productId)
+    localStorage.setItem('productList', JSON.stringify(updatedList))
+    setProductList(updatedList)
+    setMessage('Item removido com sucesso')
+    setType('success')
+  }
+  return { addProductItem, removeProduct }
 }

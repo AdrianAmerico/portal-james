@@ -7,6 +7,8 @@ export const Card = styled.div`
   padding: 20px;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.63);
   position: relative;
+  margin: 10px;
+  width: 200px;
 `
 
 export const CardHeader = styled.div`
@@ -59,6 +61,8 @@ export const CardContent = styled.section`
   h3 {
     font-weight: 500;
     font-size: 1rem;
+    width: 100%;
+    padding: 5px;
   }
 `
 

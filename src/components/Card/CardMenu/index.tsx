@@ -3,14 +3,27 @@ import React from 'react'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { VerticalDot } from '../styles'
+import { useAddProductCard } from '../../../hooks/useProductCard'
+import { Product } from '../../../global/types'
 
 interface Props {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   anchorEl: HTMLElement | null;
   handleClose: () => void;
+  item: Product;
+  productList: Product[];
+  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
-export const CardMenu = ({ handleClick, anchorEl, handleClose }: Props) => {
+export const CardMenu = ({
+  handleClick,
+  anchorEl,
+  handleClose,
+  item,
+  productList,
+  setProductList
+}: Props) => {
+  const { removeProduct } = useAddProductCard()
   return (
     <React.Fragment>
       <span
@@ -29,7 +42,11 @@ export const CardMenu = ({ handleClick, anchorEl, handleClose }: Props) => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Editar</MenuItem>
-        <MenuItem onClick={handleClose}>Excluir</MenuItem>
+        <MenuItem
+          onClick={() => removeProduct(item, productList, setProductList)}
+        >
+          Excluir
+        </MenuItem>
       </Menu>
     </React.Fragment>
   )
