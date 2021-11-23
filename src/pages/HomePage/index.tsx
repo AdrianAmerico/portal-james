@@ -8,6 +8,7 @@ import { ButtonStyled } from '../../components/Button'
 import { TextInput } from '../../components/TextInput'
 
 const HomePage = () => {
+  document.title = 'Página inicial'
   const { body, onChange, clear } = useForm({ name: '', business: '', email: '', cell: '' })
   const snackbarRef = React.useRef<any | null>(null)
   const { setMessage, setType } = React.useContext(ThemeContext)
@@ -19,7 +20,6 @@ const HomePage = () => {
     snackbarRef.current.show()
     clear()
   }
-
   return (
     <HomeContainer>
       <TypographH1>Muito prazer

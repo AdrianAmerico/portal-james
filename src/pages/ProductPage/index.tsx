@@ -5,6 +5,7 @@ import { TypographH1 } from '../HomePage/styles'
 import { ProductPageContainer } from './styles'
 
 const ProductPage = () => {
+  document.title = 'Página de produtos'
   const [productList, setProductList] = React.useState<Product[]>([])
 
   React.useEffect(() => {

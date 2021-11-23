@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { TextField } from '@material-ui/core'
 import { ButtonStyled } from '../../components/Button'
@@ -9,6 +8,7 @@ import { FormStyled } from '../HomePage/styles'
 import { DivStyled, SpanStyled } from './styles'
 
 const AddProductPage = () => {
+  document.title = 'Adicionar Estoque'
   const { body, onChange, clear } = useForm({
     name: '',
     category: '',
