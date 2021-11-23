@@ -45,9 +45,8 @@ export const FormStyled = styled.form`
   flex-direction: column;
   flex: 1;
   label, input {
-      color: #f2f3f5;
+      color: ${props => props.theme.colors.text};
   }
-
   > div {
       margin: 5px 0;
   }
@@ -63,7 +62,7 @@ export const TypographP = styled.p`
 export const ButtonStyled = styled.button`
       margin: 10px 0;
       background-color: #61CE70;
-      color: #fff;
+      color: ${props => props.theme.colors.text};
       padding: 15px 10px;
       border: none;
       border-radius: 8px;

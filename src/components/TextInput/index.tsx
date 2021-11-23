@@ -1,7 +1,14 @@
 import React from 'react'
-
-export const TextInput = () => {
+import { TextField } from '@material-ui/core'
+import { useStyles } from './styles'
+export const TextInput = (props: any) => {
+  const classes = useStyles()
   return (
-        <div></div>
+    <TextField
+      variant="outlined"
+      label="Nome"
+      {...props}
+      className={classes.root}
+    />
   )
 }

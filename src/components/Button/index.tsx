@@ -12,6 +12,6 @@ export const ButtonStyled = styled.button`
   padding: 15px;
   border: none;
   :hover {
-    cursor: pointer
+    cursor: pointer;
   }
 `

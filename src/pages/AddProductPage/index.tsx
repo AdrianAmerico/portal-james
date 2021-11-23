@@ -40,6 +40,7 @@ const AddProductPage = () => {
           onChange={onChange}
           value={body.name}
           name="name"
+          required
         />
         <TextField
           variant="outlined"
@@ -47,6 +48,7 @@ const AddProductPage = () => {
           onChange={onChange}
           value={body.category}
           name="category"
+          required
         />
         <TextField
           variant="outlined"
@@ -55,6 +57,7 @@ const AddProductPage = () => {
           value={body.productId}
           name="productId"
           type="number"
+          required
         />
         <TextField
           variant="outlined"
@@ -62,6 +65,7 @@ const AddProductPage = () => {
           onChange={onChange}
           value={body.manufacturer}
           name="manufacturer"
+          required
         />
         <TextField
           variant="outlined"
@@ -70,6 +74,7 @@ const AddProductPage = () => {
           value={body.productPrice}
           name="productPrice"
           type="number"
+          required
         />
         <SpanStyled>
           <ButtonStyled>Enviar</ButtonStyled>
