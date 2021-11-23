@@ -1,7 +1,8 @@
 
 export const LOGO = {
   URL: 'https://jamestip.com/wp-content/uploads/2021/07/JamesTip_Logo_RGB_Horizontal_White-1.png',
-  ALT: 'Logo'
+  ALT: 'Logo',
+  MOBILE: 'https://jamestip.com/wp-content/uploads/elementor/thumbs/logo-seção-topo-pfl36kyquqhzw5cx7v1u9vo859199xyc3syy29g63c.png'
 }
 
 export const ABOUT_US = `

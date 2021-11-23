@@ -1,10 +1,11 @@
 import React from 'react'
-import { TextField } from '@material-ui/core'
 import { ABOUT_US } from '../../constants'
-import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide, FormStyled, TypographH1, TypographH2, TypographP, ButtonStyled } from './styles'
+import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide, FormStyled, TypographH1, TypographH2, TypographP } from './styles'
 import useForm from '../../hooks/useForm'
 import { SnackBar } from '../../components/SnackBar'
 import { ThemeContext } from '../../context/toggleTheme'
+import { ButtonStyled } from '../../components/Button'
+import { TextInput } from '../../components/TextInput'
 
 const HomePage = () => {
   const { body, onChange, clear } = useForm({ name: '', business: '', email: '', cell: '' })
@@ -18,6 +19,7 @@ const HomePage = () => {
     snackbarRef.current.show()
     clear()
   }
+
   return (
     <HomeContainer>
       <TypographH1>Muito prazer
@@ -34,10 +36,10 @@ const HomePage = () => {
         <DivRightSide>
           <TypographH2>Deseja faturar mais ?</TypographH2>
           <FormStyled onSubmit={(event) => onSubmit(event)}>
-            <TextField variant='outlined' label='Nome' onChange={onChange} value={body.name} name='name' />
-            <TextField variant='outlined' label='Empresa' onChange={onChange} value={body.business} name='business' />
-            <TextField variant='outlined' label='Email' onChange={onChange} value={body.email} name='email' />
-            <TextField variant='outlined' label='Telefone' onChange={onChange} value={body.cell} name='cell' />
+            <TextInput label='Nome' onChange={onChange} value={body.name} name='name' required/>
+            <TextInput label='Empresa' onChange={onChange} value={body.business} name='business' />
+            <TextInput label='Email' onChange={onChange} value={body.email} name='email' required/>
+            <TextInput label='Telefone' onChange={onChange} value={body.cell} name='cell' />
             <ButtonStyled>Quero faturar mais!</ButtonStyled>
           </FormStyled>
         </DivRightSide>
