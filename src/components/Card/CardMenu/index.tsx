@@ -1,11 +1,10 @@
 import React from 'react'
-// import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { VerticalDot } from '../styles'
 import { useAddProductCard } from '../../../hooks/useProductCard'
 import { Product } from '../../../global/types'
 import { EditItem } from '../EditItem'
+import { MenuStyled } from '../../MenuStyled'
 
 interface Props {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -44,12 +43,10 @@ export const CardMenu = ({
           <div />
         </VerticalDot>
       </span>
-      <Menu
-        id="simple-menu"
+      <MenuStyled
         anchorEl={anchorEl}
-        keepMounted
         open={Boolean(anchorEl)}
-        onClose={handleClose}
+        handleClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
           <EditItem open={isOpenEditModal} handleOpen={handleOpenEditModal} handleClose={handleCloseEditModal} item={item} setProductList={setProductList}/>
@@ -59,7 +56,7 @@ export const CardMenu = ({
         >
           Excluir
         </MenuItem>
-      </Menu>
+      </MenuStyled>
     </React.Fragment>
   )
 }

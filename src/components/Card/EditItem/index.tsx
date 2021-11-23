@@ -7,10 +7,10 @@ import { FormStyled } from '../../../pages/HomePage/styles'
 import { ButtonStyled } from '../../Button'
 import { SpanStyled } from '../../../pages/AddProductPage/styles'
 import { Product } from '../../../global/types'
-import { useStyles } from './useStyles'
+import { DivStyled, useStyles } from './useStyles'
 import useForm from '../../../hooks/useForm'
 import { useAddProductCard } from '../../../hooks/useProductCard'
-
+import { ThemeContext } from 'styled-components'
 interface Props {
   open: boolean;
   handleOpen: () => void;
@@ -26,7 +26,8 @@ export const EditItem = ({
   item,
   setProductList
 }: Props) => {
-  const classes = useStyles()
+  const { colors } = React.useContext(ThemeContext)
+  const classes = useStyles(colors)
   const { editProduct } = useAddProductCard()
   const { body, onChange } = useForm({
     name: item.name,
@@ -35,10 +36,6 @@ export const EditItem = ({
     manufacturer: item.manufacturer,
     productPrice: item.productPrice
   })
-
-  React.useEffect(() => {
-    console.log(item)
-  }, [])
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -62,7 +59,7 @@ export const EditItem = ({
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <DivStyled>
             <FormStyled onSubmit={(event) => onSubmit(event)}>
               <TextField
                 variant="outlined"
@@ -107,7 +104,7 @@ export const EditItem = ({
                 <ButtonStyled>Enviar</ButtonStyled>
               </SpanStyled>
             </FormStyled>
-          </div>
+          </DivStyled>
         </Fade>
       </Modal>
     </>

@@ -16,7 +16,7 @@ export const CardHeader = styled.div`
   padding: 15px;
   position: relative;
   h1 {
-    color: white;
+    color: ${props => props.theme.colors.text};
     font-size: 1.6rem;
     font-weight: lighter;
   }
@@ -33,7 +33,7 @@ export const VerticalDot = styled.div`
    div {
     width: 1.15rem;
     height: 1.15rem;
-    background-image: radial-gradient(circle, white 0.1rem, transparent 0.1rem);
+    background-image: radial-gradient(circle, ${props => props.theme.colors.text} 0.1rem, transparent 0.1rem);
     background-size: 100% 33.33%;
     }
     :hover {
@@ -55,7 +55,7 @@ export const CardContent = styled.section`
     align-items: center;
   }
   p {
-    color: white;
+    color: ${props => props.theme.colors.text};
     width: 100%;
   }
   h3 {
@@ -70,7 +70,7 @@ export const CardFooter = styled.section`
   display: flex;
   flex-direction: column;
   text-align: center;
-  color: white;
+  color: ${props => props.theme.colors.text};
   h1 {
     font-size: 1.5rem;
   }

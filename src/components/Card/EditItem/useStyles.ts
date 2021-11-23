@@ -1,4 +1,6 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
+import { Colors } from '../../../styles/styled'
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -6,14 +8,14 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: 'white'
-    },
-    paper: {
-      background: '#222',
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-      borderRadius: '8px'
+      color: (props: Colors) => props.text
     }
   })
 )
+
+export const DivStyled = styled.div`
+  background: ${props => props.theme.colors.background_primary};
+  border: 2px solid ${props => props.theme.colors.background_secundary};
+  padding: 8px;
+  border-radius: 8px;
+`

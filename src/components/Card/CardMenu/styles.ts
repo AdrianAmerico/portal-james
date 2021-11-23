@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 interface Props {
     isOpen: boolean
 }
@@ -25,3 +24,4 @@ li{
     padding: 5px;
 }
 `
+
