@@ -10,10 +10,8 @@ import {
 
 interface Props {
   product: Product;
-  productList: Product[];
-  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
-export const Card = ({ product, productList, setProductList }: Props) => {
+export const Card = ({ product }: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -30,13 +28,11 @@ export const Card = ({ product, productList, setProductList }: Props) => {
         handleClose={handleClose}
         handleClick={handleClick}
         item={product}
-        productList={productList}
-        setProductList={setProductList}
       />
       <CardHeader>
-        <section className="header-title">
+        <section>
           <h1>{product?.name}</h1>
-          <small>{product?.category}</small>
+          <span>{product?.category}</span>
         </section>
       </CardHeader>
       <CardContent>

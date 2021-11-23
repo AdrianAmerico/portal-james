@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { ThemeContext } from '../context/toggleTheme'
+import { GlobalContext } from '../context'
 
 function useToggleTheme () {
-  const context = useContext(ThemeContext)
+  const context = useContext(GlobalContext)
   return context
 }
 

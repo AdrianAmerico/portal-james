@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
-import { ThemeContext } from '../context/toggleTheme'
+import { GlobalContext } from '../context'
 import { Product } from '../global/types'
 
-export const useAddProductCard = () => {
-  const { setMessage, setType } = React.useContext(ThemeContext)
+export const useProductCard = () => {
+  const { setMessage, setType } = React.useContext(GlobalContext)
   const [productList, setProductList] = React.useState<Product[]>([])
 
   React.useEffect(() => {

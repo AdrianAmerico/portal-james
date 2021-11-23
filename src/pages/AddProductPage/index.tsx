@@ -1,14 +1,15 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { TextField } from '@material-ui/core'
-import { ButtonStyled } from '../../components/Button'
+import { Button } from '../../components/Button'
 import { SnackBar } from '../../components/SnackBar'
 import useForm from '../../hooks/useForm'
-import { useAddProductCard } from '../../hooks/useProductCard'
-import { FormStyled } from '../HomePage/styles'
-import { DivStyled, SpanStyled } from './styles'
+import { useProductCard } from '../../hooks/useProductCard'
+import { DivStyled } from './styles'
+import { Form } from '../../components/Form'
+import { Span } from '../../components/Typograph'
 
 const AddProductPage = () => {
+  document.title = 'Adicionar Estoque'
   const { body, onChange, clear } = useForm({
     name: '',
     category: '',
@@ -16,7 +17,7 @@ const AddProductPage = () => {
     manufacturer: '',
     productPrice: 0
   })
-  const { addProductItem } = useAddProductCard()
+  const { addProductItem } = useProductCard()
 
   const snackbarRef = React.useRef<any | null>(null)
 
@@ -33,7 +34,7 @@ const AddProductPage = () => {
   return (
     <DivStyled>
       <h1>Cadastro de produtos</h1>
-      <FormStyled onSubmit={(event) => onSubmit(event)}>
+      <Form onSubmit={(event) => onSubmit(event)}>
         <TextField
           variant="outlined"
           label="Nome"
@@ -76,10 +77,10 @@ const AddProductPage = () => {
           type="number"
           required
         />
-        <SpanStyled>
-          <ButtonStyled>Enviar</ButtonStyled>
-        </SpanStyled>
-      </FormStyled>
+        <Span>
+          <Button>Enviar</Button>
+        </Span>
+      </Form>
       <SnackBar ref={snackbarRef} />
     </DivStyled>
   )

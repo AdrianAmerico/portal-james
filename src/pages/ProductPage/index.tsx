@@ -1,11 +1,12 @@
 import React from 'react'
 import { Card } from '../../components/Card'
-import { Product } from '../../global/types'
-import { TypographH1 } from '../HomePage/styles'
+import { TypographH1 } from '../../components/Typograph'
+import { GlobalContext } from '../../context'
 import { ProductPageContainer } from './styles'
 
 const ProductPage = () => {
-  const [productList, setProductList] = React.useState<Product[]>([])
+  document.title = 'Página de produtos'
+  const { productList, setProductList } = React.useContext(GlobalContext)
 
   React.useEffect(() => {
     const productListStorage = localStorage.getItem('productList')
@@ -13,20 +14,20 @@ const ProductPage = () => {
       setProductList(JSON.parse(productListStorage))
     }
   }, [])
+
   return (
     <>
       <ProductPageContainer>
         {productList && productList.length
           ? (
               productList.map((item) => {
-                return <Card key={item.productId} product={item} productList={productList} setProductList={setProductList}/>
-                // TODO Corrigir props Drilling
+                return <Card key={item.productId} product={item}/>
               })
             )
           : (
-            <div style={{ width: '100%', textAlign: 'center' }}>
+            <section>
               <TypographH1>Não há produtos em estoque</TypographH1>
-            </div>
+            </section>
             )}
       </ProductPageContainer>
     </>

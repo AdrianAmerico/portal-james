@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
 import React, { useState, forwardRef, useImperativeHandle, useContext } from 'react'
-import { ThemeContext } from '../../context/toggleTheme'
+import { GlobalContext } from '../../context'
 import { Snack } from './styles'
 
 export const SnackBar = forwardRef((props, ref) => {
   const [showSnackbar, setShowSnackbar] = useState(false)
-  const { message, type } = useContext(ThemeContext)
+  const { message, type } = useContext(GlobalContext)
 
   useImperativeHandle(ref, () => ({
     show () {

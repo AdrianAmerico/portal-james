@@ -2,15 +2,15 @@ import React from 'react'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
-import { TextField } from '@material-ui/core'
-import { FormStyled } from '../../../pages/HomePage/styles'
-import { ButtonStyled } from '../../Button'
-import { SpanStyled } from '../../../pages/AddProductPage/styles'
+import { Button } from '../../Button'
 import { Product } from '../../../global/types'
 import { DivStyled, useStyles } from './useStyles'
 import useForm from '../../../hooks/useForm'
-import { useAddProductCard } from '../../../hooks/useProductCard'
+import { useProductCard } from '../../../hooks/useProductCard'
 import { ThemeContext } from 'styled-components'
+import { Form } from '../../Form'
+import { Span } from '../../Typograph'
+import { TextInput } from '../../TextInput'
 interface Props {
   open: boolean;
   handleOpen: () => void;
@@ -28,7 +28,7 @@ export const EditItem = ({
 }: Props) => {
   const { colors } = React.useContext(ThemeContext)
   const classes = useStyles(colors)
-  const { editProduct } = useAddProductCard()
+  const { editProduct } = useProductCard()
   const { body, onChange } = useForm({
     name: item.name,
     category: item.category,
@@ -60,38 +60,33 @@ export const EditItem = ({
       >
         <Fade in={open}>
           <DivStyled>
-            <FormStyled onSubmit={(event) => onSubmit(event)}>
-              <TextField
-                variant="outlined"
-                label="ID do prduto"
+            <Form onSubmit={(event) => onSubmit(event)}>
+              <TextInput
+                label="ID"
                 onChange={onChange}
                 value={body.productId}
                 name="productId"
                 disabled
               />
-              <TextField
-                variant="outlined"
+              <TextInput
                 label="Nome"
                 onChange={onChange}
                 value={body.name}
                 name="name"
               />
-              <TextField
-                variant="outlined"
+              <TextInput
                 label="Categoria"
                 onChange={onChange}
                 value={body.category}
                 name="category"
               />
-              <TextField
-                variant="outlined"
+              <TextInput
                 label="Fabricante"
                 onChange={onChange}
                 value={body.manufacturer}
                 name="manufacturer"
               />
-              <TextField
-                variant="outlined"
+              <TextInput
                 label="Preço"
                 onChange={onChange}
                 value={body.productPrice.toLocaleString('pt-br', {
@@ -100,10 +95,10 @@ export const EditItem = ({
                 })}
                 name="productPrice"
               />
-              <SpanStyled>
-                <ButtonStyled>Enviar</ButtonStyled>
-              </SpanStyled>
-            </FormStyled>
+              <Span>
+                <Button>Enviar</Button>
+              </Span>
+            </Form>
           </DivStyled>
         </Fade>
       </Modal>

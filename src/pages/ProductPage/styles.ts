@@ -2,8 +2,16 @@ import styled from 'styled-components'
 
 export const ProductPageContainer = styled.div`
 display: flex;
-/* justify-content: center; */
-/* align-items: center; */
 flex-wrap: wrap;
-/* height: 100%; */
+
+> section {
+    width: 100%;
+    text-align: center;
+}
+
+@media(max-width: 600px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
 `
