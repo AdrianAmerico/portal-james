@@ -1,30 +1,29 @@
 import React from 'react'
 import MenuItem from '@material-ui/core/MenuItem'
 import { VerticalDot } from '../styles'
-import { useAddProductCard } from '../../../hooks/useProductCard'
+import { useProductCard } from '../../../hooks/useProductCard'
 import { Product } from '../../../global/types'
 import { EditItem } from '../EditItem'
 import { MenuStyled } from '../../MenuStyled'
+import { GlobalContext } from '../../../context'
 
 interface Props {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   anchorEl: HTMLElement | null;
   handleClose: () => void;
   item: Product;
-  productList: Product[];
-  setProductList: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 export const CardMenu = ({
   handleClick,
   anchorEl,
   handleClose,
-  item,
-  productList,
-  setProductList
+  item
 }: Props) => {
   const [isOpenEditModal, setIsOpenEditModal] = React.useState(false)
-  const { removeProduct } = useAddProductCard()
+  const { productList, setProductList } = React.useContext(GlobalContext)
+  const { removeProduct } = useProductCard()
+
   const handleOpenEditModal = () => {
     setIsOpenEditModal(true)
   }

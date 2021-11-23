@@ -11,13 +11,3 @@ export const DivStyled = styled.div`
     font-size: 2rem;
   }
 `
-
-export const SpanStyled = styled.span`
-padding: 10px 0;
-display: flex;
-align-items: center;
-justify-content: center;
-> button {
-    flex: 0.2;
-}
-`

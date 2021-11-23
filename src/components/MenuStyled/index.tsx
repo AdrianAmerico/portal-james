@@ -12,7 +12,8 @@ interface Props {
 export const MenuStyled: React.FC<Props> = ({
   children,
   anchorEl,
-  open, handleClose
+  open,
+  handleClose
 }) => {
   const { colors } = React.useContext(ThemeContext)
   const classes = useStyles(colors)

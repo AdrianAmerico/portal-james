@@ -1,17 +1,19 @@
 import React from 'react'
 import { ABOUT_US } from '../../constants'
-import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide, FormStyled, TypographH1, TypographH2, TypographP } from './styles'
+import { HomeContainer, SectionStyled, DivLeftSide, DivRightSide } from './styles'
 import useForm from '../../hooks/useForm'
 import { SnackBar } from '../../components/SnackBar'
-import { ThemeContext } from '../../context/toggleTheme'
-import { ButtonStyled } from '../../components/Button'
+import { GlobalContext } from '../../context'
+import { Button } from '../../components/Button'
 import { TextInput } from '../../components/TextInput'
+import { Form } from '../../components/Form'
+import { TypographH1, TypographH2, TypographP } from '../../components/Typograph'
 
 const HomePage = () => {
   document.title = 'Página inicial'
   const { body, onChange, clear } = useForm({ name: '', business: '', email: '', cell: '' })
   const snackbarRef = React.useRef<any | null>(null)
-  const { setMessage, setType } = React.useContext(ThemeContext)
+  const { setMessage, setType } = React.useContext(GlobalContext)
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -35,12 +37,12 @@ const HomePage = () => {
 
         <DivRightSide>
           <TypographH2>Deseja faturar mais ?</TypographH2>
-          <FormStyled onSubmit={(event) => onSubmit(event)}>
+          <Form onSubmit={(event) => onSubmit(event)}>
             <TextInput label='Nome' onChange={onChange} value={body.name} name='name' required/>
             <TextInput label='Email' onChange={onChange} value={body.email} name='email' required type='email' />
             <TextInput label='Empresa' onChange={onChange} value={body.business} name='business' />
-            <ButtonStyled>Quero faturar mais!</ButtonStyled>
-          </FormStyled>
+            <Button>Quero faturar mais!</Button>
+          </Form>
         </DivRightSide>
       </SectionStyled>
       <SnackBar
